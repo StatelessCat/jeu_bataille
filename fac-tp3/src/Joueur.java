@@ -12,8 +12,10 @@ public abstract class Joueur {
 	}
 	
 	public final Carte jouer() throws Exception {
+		System.out.println(this.paquet.getNombreCartes());
 		Carte carte = choisirCarte();
-		paquet.retirerCarte(carte);
+		this.paquet.retirerCarte(carte);
+		System.out.println(this.paquet.getNombreCartes());
 		return carte;
 	}
 	
@@ -25,6 +27,7 @@ public abstract class Joueur {
 	
 	public boolean aPerdu() {
 		if (this.paquet.getNombreCartes() <= 0) {
+			System.out.println("le joueur " + this.hashCode() + " a perdu");
 			return true;
 		}
 		else {

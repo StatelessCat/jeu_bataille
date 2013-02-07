@@ -35,16 +35,8 @@ public class Carte {
 		return couleur;
 	}
 
-	private	 void setCouleur(int couleur) {
-		this.couleur = couleur;
-	}
-
 	public int getValeur() {
 		return valeur;
-	}
-
-	private void setValeur(int valeur) {
-		this.valeur = valeur;
 	}
 	
 	/**

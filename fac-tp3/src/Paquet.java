@@ -1,4 +1,5 @@
 import java.util.ListIterator;
+import java.util.Random;
 import java.util.Vector;
 
 public class Paquet {
@@ -16,13 +17,19 @@ public class Paquet {
 	public String toString() {
 		String str = new String();
 		for (Carte c: this.cartes) {
-			str += str.toString() + "\n";
+			str += c.toString() + "\n";
 		}
 		return str;
 	}
 	
-	public Carte retirerCarte(int carte) {
-		return this.cartes.remove(carte);
+	public Carte retirerCarte() {
+		Random r = new Random();
+		System.out.println(this.getNombreCartes());
+		return this.cartes.remove(r.nextInt(this.cartes.size()));
+	}
+	
+	public Carte retirerCarte(int n) {
+		return this.cartes.remove(n);
 	}
 	
 	public Carte retirerCarte(Carte carte) throws Exception {

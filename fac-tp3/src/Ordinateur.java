@@ -3,7 +3,7 @@ import java.util.Random;
 
 public class Ordinateur extends Joueur {
 
-	Random random;
+	private Random random;
 	
 	public Ordinateur() {
 		super();
@@ -11,9 +11,6 @@ public class Ordinateur extends Joueur {
 	}
 	
 	public Carte choisirCarte() {
-		int r1 = random.nextInt();
-		int r2 = random.nextInt();
-		
-		Carte c = new Carte();
+		return this.paquet.retirerCarte((random.nextInt(this.paquet.getNombreCartes())));
 	}
 }
