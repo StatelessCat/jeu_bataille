@@ -11,9 +11,11 @@ public class Jeu {
 		this.distribuerPaquet(j1, j2);
 		System.out.println(j1.toString());
 		System.out.println(j1.paquet.getNombreCartes());
+		System.out.println(j1.paquet.toString());
 		
 		System.out.println(j2.toString());
 		System.out.println(j2.paquet.getNombreCartes());
+		System.out.println(j2.paquet.toString());
 		
 		while( !(j1.aPerdu()) && !(j2.aPerdu())) {
 			System.out.println(">>>tour :" + cpt++);
@@ -54,12 +56,13 @@ public class Jeu {
 	private void distribuerPaquet(Joueur j1, Joueur j2) {
 		j1.nouveauJeu();
 		j2.nouveauJeu();
+		this.paquet.melanger();
 		while (this.paquet.getNombreCartes() >= 2) {
-			Carte c1 = this.paquet.retirerCarte();
-			Carte c2 = this.paquet.retirerCarte();
+			Carte c1 = this.paquet.retirerCarte(0);
+			Carte c2 = this.paquet.retirerCarte(0);
 			j1.recupererCarte(c1);
 			j2.recupererCarte(c2);
-			System.out.println(this.paquet.toString());
+			//System.out.println(this.paquet.toString());
 		}
 	}
 }

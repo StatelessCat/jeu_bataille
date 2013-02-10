@@ -1,3 +1,5 @@
+import java.io.IOException;
+
 
 public abstract class Joueur {
 	
@@ -8,18 +10,18 @@ public abstract class Joueur {
 	}
 	
 	public final void nouveauJeu() {
-		// TODO 
+		System.out.println("le joueur " + this.toString() + " entre dans le jeu");
 	}
 	
 	public final Carte jouer() throws Exception {
-		System.out.println(this.paquet.getNombreCartes());
+		//System.out.println(this.paquet.getNombreCartes());
 		Carte carte = choisirCarte();
 		this.paquet.retirerCarte(carte);
 		System.out.println(this.paquet.getNombreCartes());
 		return carte;
 	}
 	
-	public abstract Carte choisirCarte();
+	public abstract Carte choisirCarte() throws Exception;
 	
 	public void recupererCarte(Carte carte) {
 		this.paquet.ajouterCarte(carte);
