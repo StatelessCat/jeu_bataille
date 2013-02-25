@@ -1,5 +1,3 @@
-import java.io.IOException;
-
 
 public abstract class Joueur {
 	
@@ -34,6 +32,18 @@ public abstract class Joueur {
 		}
 		else {
 			return false;
+		}
+	}
+	
+	public static void main(String[] args) throws Exception {	
+		try {
+			Ordinateur o1 = new Ordinateur();
+			//Ordinateur o2 = new Ordinateur();
+			Humain h2 = new Humain();
+			Jeu jeu = new Jeu(o1, h2);
+		} catch (IllegalArgumentException e) {
+			e.printStackTrace();
+			System.out.println(e.getMessage());	
 		}
 	}
 	

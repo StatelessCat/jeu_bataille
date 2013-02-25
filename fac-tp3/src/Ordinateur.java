@@ -1,6 +1,5 @@
 import java.util.Random;
 
-
 public class Ordinateur extends Joueur {
 
 	private Random random;

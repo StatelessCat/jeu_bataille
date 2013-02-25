@@ -45,7 +45,7 @@ public class Jeu {
 	}
 	
 	private void creerNouveauPaquet() {
-		for (int i = 0; i < 12; ++i) {
+		for (int i = 0; i <= 12; ++i) {
 			for (int j = 0; j < 4; ++j) {
 				Carte tmp = new Carte(j, i);
 				this.paquet.ajouterCarte(tmp);

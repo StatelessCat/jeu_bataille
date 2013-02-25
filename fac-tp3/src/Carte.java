@@ -52,11 +52,25 @@ public class Carte {
 			return -1; 
 		}
 		else {
-			return 0;
+			if (this.couleur > c.couleur) {
+				return 1;
+			}
+			else if(this.couleur < c.couleur) {
+				return -1;
+			}
+			else {
+				return 0;
+			}
 		}
 	}
-	
+
 	public int hashCode() {
 		return this.valeur * (this.couleur+1);
+	}
+	
+	// redéfinition nécessaire parceque indexOf sur les Vector utilise les références par défaut pour définir l'égalité:
+	@Override
+	public boolean equals(Object obj) {
+		return (this.couleur == ((Carte) obj).couleur) && (this.valeur == ((Carte) obj).valeur);
 	}
 }

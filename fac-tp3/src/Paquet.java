@@ -1,4 +1,3 @@
-import java.util.ListIterator;
 import java.util.Random;
 import java.util.Vector;
 
@@ -32,23 +31,14 @@ public class Paquet {
 	 * @return 
 	 * @throws Exception
 	 */
-	public Carte retirerCarte(Carte carte) throws Exception {
-		Carte crt = new Carte();
-		ListIterator<Carte> li = this.cartes.listIterator();
-		while(li.hasNext()) {
-			crt = li.next();
-			// si l'objet Carte est identique au parametre
-			if ((carte.getCouleur() == crt.getCouleur()) && (carte.getValeur() == crt.getValeur())) {
-				break;
-			}
-		}
-		// on vérifie que la raison de la sortie de la boucle est bien que la carte à étée trouvée:
-		if ((carte.getCouleur() == crt.getCouleur()) && (carte.getValeur() == crt.getValeur())) {
-			// on retire le référent de la carte que l'on enleve:
-			return this.cartes.remove(li.previousIndex());
+	public Carte retirerCarte(Carte carte) {
+		int carteIndex = this.cartes.indexOf(carte);
+		System.out.println("index : "+ carteIndex);
+		if (carteIndex == -1) {
+			throw new IllegalArgumentException("la carte n'est pas dans le jeu");
 		}
 		else {
-			throw new IllegalArgumentException("pas de carte trouvée");
+			return this.cartes.remove(carteIndex);
 		}
 	}
 	
